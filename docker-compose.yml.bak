@@ -2,7 +2,7 @@ version: '2'
 services:
   onlyoffice-documentserver-data:
     container_name: onlyoffice-documentserver-data
-    image: onlyoffice/4testing-documentserver-integration:4.4.2.20
+    image: onlyoffice/documentserver:latest
     extra_hosts:
       - "slave02:192.168.3.242"
     environment:
@@ -27,7 +27,7 @@ services:
        - ./doc-fonts:/usr/share/fonts
        
   onlyoffice-documentserver:
-    image: palan-document-server
+    image: onlyoffice/documentserver:latest
     extra_hosts:
       - "slave02:192.168.3.242"
     depends_on:

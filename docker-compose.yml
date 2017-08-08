@@ -3,8 +3,6 @@ services:
   onlyoffice-documentserver-data:
     container_name: onlyoffice-documentserver-data
     image: onlyoffice/4testing-documentserver-integration:4.4.2.20
-    extra_hosts:
-      - "slave02:192.168.3.242"
     environment:
       - ONLYOFFICE_DATA_CONTAINER=true
       - POSTGRESQL_SERVER_HOST=onlyoffice-postgresql
@@ -28,8 +26,6 @@ services:
        
   onlyoffice-documentserver:
     image: palan-document-server
-    extra_hosts:
-      - "slave02:192.168.3.242"
     depends_on:
       - onlyoffice-documentserver-data
       - onlyoffice-postgresql
@@ -55,8 +51,6 @@ services:
   onlyoffice-haproxy:
     container_name: onlyoffice-haproxy
     image: dockercloud/haproxy:1.5.1
-    extra_hosts:
-      - "slave02:192.168.3.242"
     depends_on:
       - onlyoffice-documentserver
     environment:

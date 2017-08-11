@@ -105,6 +105,16 @@ services:
       - '5432'
     volumes:
       - postgresql_data:/var/lib/postgresql
+
+  report-nginx:
+    image: nginx
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - /opt/docker_data/volumes/pdas/report:/usr/share/nginx/html
+    ports:
+      - '80:80'
+    restart: always
   
 networks:
   onlyoffice:

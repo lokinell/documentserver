@@ -32,7 +32,11 @@
             text-align: center;
             line-height: 10px;
         }
-
+	
+	#header-container {
+	   display:none;
+	}
+	
         #developer-hint {
            display:none;
         }
@@ -50,7 +54,13 @@
             display: inline-block;
         }
 
-        .loader-page-text {
+        #toolbar {
+          top:0 !important;	
+	}
+	#header{
+          display:none;
+	}
+	.loader-page-text {
             width: 100%;
             bottom: 42%;
             position: absolute;
@@ -244,6 +254,7 @@
         else if ( lang == 'ru') loading = 'Загрузка...';
         else if ( lang == 'sl') loading = 'Nalaganje...';
         else if ( lang == 'tr') loading = 'Yükleniyor...';
+        else if ( lang == 'zh') loading = '加载中...';
 
         if (!stopLoading)
         document.write(
